@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sg.rpc.user.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.sg.rpc.user.domain.UserDomain">
+        <id column="id" property="id" />
+        <result column="account" property="account" />
+        <result column="real_name" property="realName" />
+        <result column="gender" property="gender" />
+        <result column="mobile_number" property="mobileNumber" />
+        <result column="email" property="email" />
+        <result column="position" property="position" />
+        <result column="department" property="department" />
+        <result column="status" property="status" />
+        <result column="head_portrait_url" property="headPortraitUrl" />
+        <result column="deleted" property="deleted" />
+        <result column="created_by" property="createdBy" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_by" property="updatedBy" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, account, real_name, gender, mobile_number, email, position, department, status, head_portrait_url, deleted, created_by, created_at, updated_by, updated_at
+    </sql>
+
+</mapper>

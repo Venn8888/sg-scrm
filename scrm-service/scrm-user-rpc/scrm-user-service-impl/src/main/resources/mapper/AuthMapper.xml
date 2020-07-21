@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sg.rpc.user.mapper.AuthMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.sg.rpc.user.domain.AuthDomain">
+        <id column="id" property="id" />
+        <result column="application_code" property="applicationCode" />
+        <result column="module_code" property="moduleCode" />
+        <result column="auth_key" property="authKey" />
+        <result column="parent_key" property="parentKey" />
+        <result column="name" property="name" />
+        <result column="auth_type" property="authType" />
+        <result column="order_num" property="orderNum" />
+        <result column="deleted" property="deleted" />
+        <result column="created_by" property="createdBy" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_by" property="updatedBy" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, application_code, module_code, auth_key, parent_key, name, auth_type, order_num, deleted, created_by, created_at, updated_by, updated_at
+    </sql>
+
+</mapper>

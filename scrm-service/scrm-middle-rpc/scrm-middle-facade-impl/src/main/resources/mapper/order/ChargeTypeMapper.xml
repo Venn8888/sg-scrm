@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sg.order.mapper.ChargeTypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.sg.order.entity.ChargeType">
+        <id column="id" property="id" />
+        <result column="type_name" property="typeName" />
+        <result column="store_id" property="storeId" />
+        <result column="parent_id" property="parentId" />
+        <result column="description" property="description" />
+        <result column="remark" property="remark" />
+        <result column="is_active" property="isActive" />
+        <result column="created_by" property="createdBy" />
+        <result column="updated_by" property="updatedBy" />
+        <result column="created_date" property="createdDate" />
+        <result column="updated_date" property="updatedDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, type_name, store_id, parent_id, description, remark, is_active, created_by, updated_by, created_date, updated_date
+    </sql>
+
+    <select id="selectListAll" parameterType="com.sg.order.entity.ChargeType" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from so_charge_type
+        where 1=1
+        <if test="id != null "> and id=#{id}</if>
+        <if test="typeName != null  and typeName != ''"> and type_name=#{typeName}</if>
+        <if test="storeId != null  and storeId != ''"> and store_id=#{storeId}</if>
+        <if test="parentId != null "> and parent_id=#{parentId}</if>
+        <if test="description != null  and description != ''"> and description=#{description}</if>
+        <if test="remark != null  and remark != ''"> and remark=#{remark}</if>
+        <if test="isActive != null  and isActive != ''"> and is_active=#{isActive}</if>
+        <if test="createdBy != null  and createdBy != ''"> and created_by=#{createdBy}</if>
+        <if test="updatedBy != null  and updatedBy != ''"> and updated_by=#{updatedBy}</if>
+        <if test="createdDate != null "> and created_date=#{createdDate}</if>
+        <if test="updatedDate != null "> and updated_date=#{updatedDate}</if>
+    </select>
+
+    <select id="selectById" parameterType="int" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from so_charge_type
+        where id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="com.sg.order.entity.ChargeType">
+        insert into so_charge_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null ">`id`,</if>
+            <if test="typeName != null  and typeName != ''">`type_name`,</if>
+            <if test="storeId != null  and storeId != ''">`store_id`,</if>
+            <if test="parentId != null ">`parent_id`,</if>
+            <if test="description != null  and description != ''">`description`,</if>
+            <if test="remark != null  and remark != ''">`remark`,</if>
+            <if test="isActive != null  and isActive != ''">`is_active`,</if>
+            <if test="createdBy != null  and createdBy != ''">`created_by`,</if>
+            <if test="updatedBy != null  and updatedBy != ''">`updated_by`,</if>
+            <if test="createdDate != null ">`created_date`,</if>
+            <if test="updatedDate != null ">`updated_date`,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null ">#{id},</if>
+            <if test="typeName != null  and typeName != ''">#{typeName},</if>
+            <if test="storeId != null  and storeId != ''">#{storeId},</if>
+            <if test="parentId != null ">#{parentId},</if>
+            <if test="description != null  and description != ''">#{description},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+            <if test="isActive != null  and isActive != ''">#{isActive},</if>
+            <if test="createdBy != null  and createdBy != ''">#{createdBy},</if>
+            <if test="updatedBy != null  and updatedBy != ''">#{updatedBy},</if>
+            <if test="createdDate != null ">#{createdDate},</if>
+            <if test="updatedDate != null ">#{updatedDate},</if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.sg.order.entity.ChargeType">
+        update  so_charge_type
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="id != null ">`id`=#{id},</if>
+            <if test="typeName != null  and typeName != ''">`type_name`=#{typeName},</if>
+            <if test="storeId != null  and storeId != ''">`store_id`=#{storeId},</if>
+            <if test="parentId != null ">`parent_id`=#{parentId},</if>
+            <if test="description != null  and description != ''">`description`=#{description},</if>
+            <if test="remark != null  and remark != ''">`remark`=#{remark},</if>
+            <if test="isActive != null  and isActive != ''">`is_active`=#{isActive},</if>
+            <if test="createdBy != null  and createdBy != ''">`created_by`=#{createdBy},</if>
+            <if test="updatedBy != null  and updatedBy != ''">`updated_by`=#{updatedBy},</if>
+            <if test="createdDate != null ">`created_date`=#{createdDate},</if>
+            <if test="updatedDate != null ">`updated_date`=#{updatedDate},</if>
+        </trim>
+        where id=#{id}
+    </update>
+
+
+    <delete id="deleteById" parameterType="int">
+		delete from so_charge_type
+		where `id`=#{id}
+	</delete>
+
+    <delete id="deleteBatchIds" parameterType="String">
+		delete from so_charge_type where 'id' in
+        <foreach collection="idList" item="id" index="index" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+	</delete>
+
+    <insert id="saveForeach" parameterType="java.util.List" useGeneratedKeys="false">
+        insert into so_charge_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            `id`,
+            `type_name`,
+            `store_id`,
+            `parent_id`,
+            `description`,
+            `remark`,
+            `is_active`,
+            `created_by`,
+            `updated_by`,
+            `created_date`,
+            `updated_date`,
+        </trim>
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.typeName},
+                #{item.storeId},
+                #{item.parentId},
+                #{item.description},
+                #{item.remark},
+                #{item.isActive},
+                #{item.createdBy},
+                #{item.updatedBy},
+                #{item.createdDate},
+                #{item.updatedDate},
+            </trim>
+        </foreach>
+    </insert>
+</mapper>

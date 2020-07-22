@@ -3,20 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>scrm-web</artifactId>
+        <artifactId>scrm-service</artifactId>
         <groupId>com.sg</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>scrm-middle-api</artifactId>
+    <artifactId>scrm-middle-rpc</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>scrm-middle-facade</module>
+        <module>scrm-middle-facade-impl</module>
+    </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.sg</groupId>
-            <artifactId>scrm-middle-facade</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
 </project>

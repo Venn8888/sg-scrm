@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8804
 
 spring:
   application:
@@ -8,4 +8,8 @@ spring:
     allow-bean-definition-overriding: true
   cloud:
     nacos:
-      server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        shared-configs: redis.yml,rabbitmq.yml,common.yml
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}

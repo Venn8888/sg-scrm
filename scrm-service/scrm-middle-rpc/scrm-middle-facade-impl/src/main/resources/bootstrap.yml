@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: middle-facade
+  cloud:
+    nacos:
+      config:
+#        namespace: aca3e408-c9ed-4cc5-8dfd-55229fb59c0b
+        server-addr: localhost:8848
+        shared-configs: db-skate.yml
+      discovery:
+#        namespace: aca3e408-c9ed-4cc5-8dfd-55229fb59c0b
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+  main:
+    allow-bean-definition-overriding: true
+  resources:
+    add-mappings: false
+  profiles:
+    active: local
+
+#mybatis 设置
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+
+

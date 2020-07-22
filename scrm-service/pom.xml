@@ -12,20 +12,14 @@
     <artifactId>scrm-service</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>scrm-user-rpc</module>
+        <module>scrm-middle-rpc</module>
     </modules>
 
     <dependencies>
-        <!--mybatis-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.3.1.tmp</version>
+            <version>3.3.2</version>
         </dependency>
         <dependency>
             <groupId>org.apache.velocity</groupId>
@@ -33,29 +27,11 @@
             <version>2.2</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.11</version>
-        </dependency>
-
-         <dependency>
-             <groupId>com.baomidou</groupId>
-             <artifactId>mybatis-plus-annotation</artifactId>
-             <version>3.3.1.tmp</version>
-             <scope>compile</scope>
-         </dependency>
-         <dependency>
-             <groupId>com.baomidou</groupId>
-             <artifactId>mybatis-plus-core</artifactId>
-             <version>3.3.1.tmp</version>
-             <scope>compile</scope>
-         </dependency>
-        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-extension</artifactId>
             <version>3.3.1.tmp</version>
-            <scope>compile</scope>
         </dependency>
+
     </dependencies>
 
 </project>
